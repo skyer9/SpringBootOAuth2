@@ -1,7 +1,6 @@
 package kr.co.episode.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -25,12 +24,6 @@ import java.security.KeyPair;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    @Value("${resouce.id:spring-boot-application}")
-    private String resourceId;
-
-    @Value("${access_token.validity_period:3600}")
-    int accessTokenValiditySeconds = 3600;
-
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -76,15 +69,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // oauth_client_details 테이블에 등록된 사용자로 조회한다.
         clients.withClientDetails(clientDetailsService);
-
-		/*
-		clients.inMemory()
-				.withClient("bar").secret("foo")
-				.authorizedGrantTypes("password")
-				.authorities("ROLE_USER")
-				.scopes("read", "write")
-				.resourceIds(resourceId)
-				.accessTokenValiditySeconds(accessTokenValiditySeconds);
-		*/
     }
 }
