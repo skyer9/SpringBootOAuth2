@@ -1,0 +1,33 @@
+spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost/oauth?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+        username: root
+        password:
+        hikari:
+            maximum-pool-size: 40
+            max-lifetime: 1800000
+    jpa:
+        hibernate.ddl-auto: none
+        generate-ddl: false
+        show-sql: false
+#    security:
+#        user:
+#            name: user
+#            password: test
+
+#security:
+#    oauth2:
+#        client:
+#            client-id: foo
+#            client-secret: bar
+
+server:
+    port: 8080
+
+#logging:
+#    level:
+#        org:
+#            springframework:
+#                web: DEBUG
+#                security: DEBUG

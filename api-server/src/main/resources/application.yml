@@ -1,0 +1,31 @@
+spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost/oauth?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+        username: root
+        password:
+        hikari:
+            maximum-pool-size: 40
+            max-lifetime: 1800000
+    jpa:
+        hibernate.ddl-auto: none
+        generate-ddl: false
+        show-sql: false
+
+server:
+    port: 8081
+
+security:
+    oauth2:
+        resource:
+            jwt:
+                key-value:
+                    -----BEGIN PUBLIC KEY-----
+                    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiVt1PKIlpdXQeuy3eU2k
+                    3Sv9glKrgQY7qSYEk9FhurddNiv1hVjqYouLIECKdrEUYEY3jl6vaK3nTVeqMyBk
+                    Q1tkDcy8NHhh/PeCoUtDPyPrV7+DeP9n5TyBiTj2oJ7mMT9axWc8OICKl3JGvytM
+                    m8aocfOi3Tg3nbyhZTXpn+506MegP3TBII+K7nqBgAefly2wTB3A8Od2V0JvdyPC
+                    2CiDxTgvswiiS/UEx96fkHrJgJ0PTmNLQR/JWXWs45rNUblIwz1O3CqTwHG6jp5e
+                    hYusIjD2D4mc2ekvDYdDRb0XaqKo9+AtgVk+K9jP8FhdmxsWcTOgbGbCYIllTzW5
+                    7QIDAQAB
+                    -----END PUBLIC KEY-----
